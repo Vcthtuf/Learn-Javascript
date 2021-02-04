@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 let money, time;
 
@@ -12,9 +12,6 @@ let appData = {
     income: [],
     savings: false
 };
-
-console.log(appData.budget);
-console.log(appData.timeData);
 
 chooseExpenses();
 
@@ -38,18 +35,18 @@ function chooseExpenses() {
         let a = prompt('Введите обязательную статью расходов', '');
         let b = +prompt('Во сколько обойдется?', '');
 
-        if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
+        if ((typeof (a)) == 'string' && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
             console.log('done');
             appData.expenses[a] = b;
         } else {
             i--;
         }
-    };
+    }
 }
 
 function checkSavings() {
     appData.savings = confirm('Вы имеете накопления?');
-    if (appData.savings) {
+    if (appData.savings == true) {
         let save = +prompt('Какова сумма Ваших накоплений?', ''),
             persent = +prompt('Под какой процент?', '');
 
