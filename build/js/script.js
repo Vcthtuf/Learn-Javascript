@@ -8,7 +8,7 @@ let appData = {
     budget: money,
     timeData: time,
     expenses: {},
-    optionalExpencses: {},
+    optionalExpenses: {},
     income: [],
     savings: false
 };
@@ -46,7 +46,7 @@ function chooseExpenses() {
 
 function checkSavings() {
     appData.savings = confirm('Вы имеете накопления?');
-    if (appData.savings == true) {
+    if (appData.savings === true) {
         let save = +prompt('Какова сумма Ваших накоплений?', ''),
             persent = +prompt('Под какой процент?', '');
 
