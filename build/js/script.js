@@ -15,13 +15,16 @@ let appData = {
 
 chooseExpenses();
 
-appData.moneyPerDay = (appData.budget / 30).toFixed(2);
+detectDayBudget();
 
-alert('Ваш бюджет на день ' + appData.moneyPerDay);
+checkSavings();
+
+chooseOptExpenses()
 
 console.log(appData);
 
-checkSavings();
+
+// functions 
 
 function start() {
     while (isNaN(money) || money == '' || money == null) {
@@ -52,6 +55,24 @@ function checkSavings() {
 
         appData.monthIncome = (save * persent / 1200).toFixed(2);
         alert('Ваша прибыль в месяц: ' + appData.monthIncome);
+    }
+}
+
+function detectDayBudget() {
+    appData.moneyPerDay = (appData.budget / 30).toFixed(2);
+
+    alert('Ваш бюджет на день ' + appData.moneyPerDay);
+}
+
+function chooseOptExpenses() {
+    for (let i = 0; i < 3; i++) {
+        let a = prompt('Введите статью необязательных расходов', '');
+        if ((typeof (a)) == 'string' && (typeof (a)) != null && a != '' && a.length < 50) {
+            console.log('done');
+            appData.optionalExpenses[i + 1] = a;
+        } else {
+            i--;
+        }
     }
 }
 

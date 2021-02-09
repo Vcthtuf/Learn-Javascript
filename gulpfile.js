@@ -24,7 +24,7 @@ gulp.task('pug', function () {
 });
 
 gulp.task('sass', function () {
-    return gulp.src('src/sass/*.sass')
+    return gulp.src('src/sass/**/*.sass')
         .pipe(gp.sourcemaps.init())
         .pipe(gp.sass({}))
         .pipe(gp.autoprefixer({
@@ -41,7 +41,7 @@ gulp.task('sass', function () {
 
 gulp.task('watch', function () {
     gulp.watch('src/*.pug', gulp.series('pug'));
-    gulp.watch('src/sass/*.sass', gulp.series('sass'));
+    gulp.watch('src/sass/**/*.sass', gulp.series('sass'));
 });
 
 gulp.task('default', gulp.series(
