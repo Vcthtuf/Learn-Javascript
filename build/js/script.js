@@ -50,9 +50,14 @@ let appData = {
     },
     chooseIncome: function () {
         let items = prompt('Что принесет дополнительный доход (Перечислите через запятую)', '');
-        appData.income = items.split(', ');
+        if (typeof (items) == 'string' && typeof (items) != null && items != '') {
+            appData.income = items.split(', ');
+        }
         appData.income.push(prompt('Может что-то еще?', ''));
-        appData.income.sort().reverse();
+        appData.income.sort();
+        appData.income.forEach((item, index, income) => {
+            alert(`${index + 1}.  ${item}`);
+        });
     }
 };
 
