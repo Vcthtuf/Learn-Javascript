@@ -58,20 +58,10 @@ let appData = {
         appData.income.forEach((item, index, income) => {
             alert(`${index + 1}.  ${item}`);
         });
-
     }
 };
 
-
-console.log(`Наша программа включает в себя данные:`);
-for (let key in appData) {
-    console.log(`${key}: ${appData[key]}`);
-}
-
-
-
 console.log(appData);
-
 
 // functions 
 
