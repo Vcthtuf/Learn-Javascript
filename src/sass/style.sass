@@ -5,7 +5,79 @@ body
     margin: 0
 
 .title 
-    margin: 0 auto
+    margin: 0 auto 1rem
     text-align: center
     width: 50%
     font-size: 2em
+
+hr
+    width: 80%
+    height: 2px
+    background-color: #ccc
+    border-width: 0
+
+.box
+    width: 150px
+    height: 150px
+    background-color: #0f0
+    margin: 2rem auto 2rem auto
+
+.buttons
+    width: 80%
+    display: flex
+    justify-content: space-evenly
+    margin: 0 auto 3rem auto
+
+
+button
+    width: 80px
+    height: 30px
+    margin-top: 10px
+    borer: none
+    border-radius: 8px
+    background-color: #000
+    color: #fff
+    cursor: pointer
+    outline: none
+
+.circles
+    width: 50%
+    display: flex
+    justify-content: space-evenly
+    margin: 0 auto 2rem auto
+
+.circle 
+    width: 80px
+    height: 80px
+    background-color: #00f
+    display: inline-block
+    border-radius: 100%
+
+.hearts
+    display: flex
+    justify-content: space-evenly
+    width: 50%
+    margin: 0 auto
+
+.heart 
+    display: inline-block
+    position: relative
+    width: 100px
+    height: 90px
+
+    &::before, &::after
+        position: absolute
+        content: ''
+        left: 50px
+        top: 0
+        width: 50px
+        height: 80px
+        background: #f00
+        border-radius: 50px 50px 0 0
+        transform: rotate(-45deg)
+        transform-origin: 0 100%
+
+    &::after
+        left: 0
+        transform: rotate(45deg)
+        transform-origin: 100% 100%

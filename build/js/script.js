@@ -2,7 +2,7 @@
 
 let money, time;
 
-start();
+// start();
 
 let appData = {
     budget: money,
