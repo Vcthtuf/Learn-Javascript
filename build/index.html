@@ -8,26 +8,97 @@
     <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body>
-    <h1 class="title">Learn Javascript</h1>
-    <hr/>
-    <div class="box" id="box"> </div>
-    <div class="buttons">
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
+    <div class="logo"><span>money</span> keeper</div>
+    <div class="title">Расчет дневного бюджета</div>
+    <div class="main"> 
+      <div class="data">
+        <div class="expenses"> 
+          <div class="expenses_title">Введите обязательные расходы</div>
+          <div class="expenses_top"> 
+            <input class="expenses_top_name" type="text" placeholder="Наименование"/>
+            <input class="expenses_top_price" type="text" placeholder="Цена"/>
+          </div>
+          <div class="expenses_bottom"> 
+            <input class="expenses_bottom_name" type="text" placeholder="Наименование"/>
+            <input class="expenses_bottom_price" type="text" placeholder="Цена"/>
+          </div>
+          <button class="expenses_btn">Утвердить</button>
+        </div>
+        <div class="optexpenses"> 
+          <div class="optexpenses_title">Введите необязательные расходы
+            <div class="optexpenses_table">
+              <input class="optexpenses_item" type="text"/>
+              <input class="optexpenses_item" type="text"/>
+              <input class="optexpenses_item" type="text"/>
+            </div>
+          </div>
+          <button class="optexpenses_btn">Утвердить</button>
+        </div>
+        <div class="countbudget_title">Расчет дневного бюджета</div>
+        <button class="countbudget_btn">Рассчитать</button>
+        <div class="income_title">Введите статьи возможного дохода через запятую</div>
+        <input class="income_label" type="text"/>
+        <div class="saving">
+          <div class="checksaving">Есть ли накопления
+            <input class="checksaving_btn" type="checkbox"/>
+          </div>
+          <div class="saving_sum">
+            <label for="sum">Сумма</label>
+            <input class="saving_item" id="sum" type="text"/>
+          </div>
+          <div class="saving_percent">
+            <label for="percent">Процент</label>
+            <input class="saving_item" id="percent" type="text"/>
+          </div>
+        </div>
+        <div class="open"> 
+          <button class="start" id="start">Начать расчет                 </button>
+        </div>
+      </div>
+      <div class="result">
+        <div class="result_table"> 
+          <div class="budget">Доход:
+            <div class="budget_name">Уровень дохода</div>
+            <div class="budget_value"> </div>
+          </div>
+          <div class="daybudget">
+            <div class="daybudget_name">Бюджет на 1 день:</div>
+            <div class="daybudget_value"></div>
+          </div>
+          <div class="expenses">
+            <div class="expenses_name">Обязательные расходы:</div>
+            <div class="expenses_value"> </div>
+          </div>
+          <div class="optionalexpenses"> 
+            <div class="optionalexpenses_name">Возможные траты:</div>
+            <div class="optionalexpenses_value"> </div>
+          </div>
+          <div class="income"> 
+            <div class="income_name">Дополнительный доход:</div>
+            <div class="income_value"> </div>
+          </div>
+          <div class="monthsaving"> 
+            <div class="monthsaving_name">Накопления за 1 месяц:</div>
+            <div class="monthsaving_value"></div>
+          </div>
+          <div class="yearsaving"> 
+            <div class="yearsaving_name"> </div>
+            <div class="yearsaving_value">Накопления за 1 год:</div>
+          </div>
+          <div class="data"> 
+            <div class="year">Год
+              <input class="year_value" type="text" readonly="readonly"/>
+            </div>
+            <div class="month">Месяц
+              <input class="month_value" type="text" readonly="readonly"/>
+            </div>
+            <div class="day">День
+              <input class="day_value" type="text" readonly="readonly"/>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="circles">
-      <div class="circle"> </div>
-      <div class="circle"> </div>
-      <div class="circle"> </div>
-    </div>
-    <div class="hearts">
-      <div class="heart"> </div>
-      <div class="heart"> </div>
-      <div class="heart"> </div>
-    </div>
-    <script src="js/js.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
