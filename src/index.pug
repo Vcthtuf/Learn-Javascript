@@ -8,32 +8,32 @@ html(lang="ru")
         link(rel="stylesheet", href="css/style.css")
     body
         .logo <span>money</span> keeper
-        .title Расчет дневного бюджета
+        .main_title Расчет дневного бюджета
         .main 
             .data
                 .expenses 
-                    .expenses_title Введите обязательные расходы
+                    .expenses_title.title Введите обязательные расходы
                     .expenses_top 
                         input.expenses_top_name(type="text" placeholder="Наименование") 
                         input.expenses_top_price(type="text" placeholder="Цена")
                     .expenses_bottom 
                         input.expenses_bottom_name(type="text" placeholder="Наименование") 
                         input.expenses_bottom_price(type="text" placeholder="Цена")
-                    button.expenses_btn Утвердить
+                    button.expenses_btn.btn Утвердить
                 .optexpenses 
-                    .optexpenses_title Введите необязательные расходы
-                        .optexpenses_table
-                            input.optexpenses_item(type="text") 
-                            input.optexpenses_item(type="text")
-                            input.optexpenses_item(type="text")
-                    button.optexpenses_btn Утвердить
-                .countbudget_title Расчет дневного бюджета
-                button.countbudget_btn Рассчитать
-                .income_title Введите статьи возможного дохода через запятую
+                    .optexpenses_title.title Введите необязательные расходы
+                    .optexpenses_table
+                        input.optexpenses_item(type="text") 
+                        input.optexpenses_item(type="text")
+                        input.optexpenses_item(type="text")
+                    button.optexpenses_btn.btn Утвердить
+                .countbudget_title.title Расчет дневного бюджета
+                button.countbudget_btn.btn Рассчитать
+                .income_title.title Введите статьи возможного дохода через запятую
                 input.income_label(type="text")
                 .saving
                     .checksaving Есть ли накопления
-                        input.checksaving_btn(type="checkbox")
+                        input.checksaving_btn.btn(type="checkbox")
                     .saving_sum
                         label(for="sum") Сумма
                         input.saving_item#sum(type="text")
@@ -41,31 +41,31 @@ html(lang="ru")
                         label(for="percent") Процент
                         input.saving_item#percent(type="text")
                 .open 
-                    button.start#start Начать расчет                 
+                    button.start.btn#start Начать расчет                 
 
             .result
                 .result_table 
                     .budget Доход:
-                        .budget_name Уровень дохода
+                        .budget_name.name Уровень дохода
                         .budget_value 
                     .daybudget
-                        .daybudget_name Бюджет на 1 день:
+                        .daybudget_name.name Бюджет на 1 день:
                         .daybudget_value
                     .expenses
-                        .expenses_name Обязательные расходы:
+                        .expenses_name.name Обязательные расходы:
                         .expenses_value 
                     .optionalexpenses 
                         .optionalexpenses_name Возможные траты:
                         .optionalexpenses_value 
                     .income 
-                        .income_name Дополнительный доход:
+                        .income_name.name Дополнительный доход:
                         .income_value 
                     .monthsaving 
-                        .monthsaving_name Накопления за 1 месяц:
+                        .monthsaving_name.name Накопления за 1 месяц:
                         .monthsaving_value
                     .yearsaving 
-                        .yearsaving_name 
-                        .yearsaving_value Накопления за 1 год:
+                        .yearsaving_name.name Накопления за 1 год: 
+                        .yearsaving_value 
                     .data 
                         .year Год
                             input.year_value(type="text" readonly) 

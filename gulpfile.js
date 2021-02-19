@@ -1,50 +1,35 @@
 'use strict';
 
-var gulp = require('gulp'),
-    gp = require('gulp-load-plugins')(),
-    browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
+const sass = require('gulp-sass');
+const cleanCSS = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer');
+const rename = require("gulp-rename");
 
-gulp.task('serve', function () {
-    browserSync.init({
+gulp.task('server', function () {
+
+    browserSync({
         server: {
-            baseDir: "./build"
+            baseDir: "src"
         }
     });
 
-    browserSync.watch('build', browserSync.reload)
-
+    gulp.watch("src/*.html").on('change', browserSync.reload);
 });
 
-gulp.task('pug', function () {
-    return gulp.src('src/*.pug')
-        .pipe(gp.pug({
-            pretty: true
-        }))
-        .pipe(gulp.dest('build'));
-});
-
-gulp.task('sass', function () {
-    return gulp.src('src/sass/**/*.sass')
-        .pipe(gp.sourcemaps.init())
-        .pipe(gp.sass({}))
-        .pipe(gp.autoprefixer({
-            overrideBrowserslist: ['> 1%', 'last 2 versions']
-
-        }))
-        .on("error", gp.notify.onError(function (error) {
-            return "Style: " + error.message;
-        }))
-        .pipe(gp.csso({}))
-        .pipe(gp.sourcemaps.write())
-        .pipe(gulp.dest('build/css'));
+gulp.task('styles', function () {
+    return gulp.src("src/sass/**/*.+(scss|sass)")
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(rename({ suffix: '.min', prefix: '' }))
+        .pipe(autoprefixer())
+        .pipe(cleanCSS({ compatibility: 'ie8' }))
+        .pipe(gulp.dest("src/css"))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function () {
-    gulp.watch('src/*.pug', gulp.series('pug'));
-    gulp.watch('src/sass/**/*.sass', gulp.series('sass'));
-});
+    gulp.watch("src/sass/**/*.+(scss|sass)", gulp.parallel('styles'));
+})
 
-gulp.task('default', gulp.series(
-    gulp.parallel('pug', 'sass'),
-    gulp.parallel('watch', 'serve')
-));
+gulp.task('default', gulp.parallel('watch', 'server', 'styles'));
