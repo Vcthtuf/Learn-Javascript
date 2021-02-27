@@ -5,7 +5,7 @@ html(lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         title Learn Javascript
-        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="css/style.min.css")
     body
         .logo <span>money</span> keeper
         .main_title Расчет дневного бюджета
@@ -15,10 +15,10 @@ html(lang="ru")
                     .expenses_title.title Введите обязательные расходы
                     .expenses_top 
                         input.expenses_top_name(type="text" placeholder="Наименование") 
-                        input.expenses_top_price(type="text" placeholder="Ценник")
+                        input.expenses_top_price(type="text" placeholder="Цена")
                     .expenses_bottom 
                         input.expenses_bottom_name(type="text" placeholder="Наименование") 
-                        input.expenses_bottom_price(type="text" placeholder="Ценник")
+                        input.expenses_bottom_price(type="text" placeholder="Цена")
                     button.expenses_btn.btn Утвердить
                 .optexpenses 
                     .optexpenses_title.title Введите необязательные расходы
