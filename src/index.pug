@@ -16,11 +16,11 @@ html(lang="ru")
                     .expenses 
                         .expenses_title.title Введите обязательные расходы
                         .expenses_top 
-                            input.expenses_top_name(type="text" placeholder="Наименование") 
-                            input.expenses_top_price(type="text" placeholder="Цена")
+                            input.expenses_item#expenses_1(type="text" placeholder="Наименование") 
+                            input.expenses_item#expenses_2(type="text" placeholder="Цена")
                         .expenses_bottom 
-                            input.expenses_bottom_name(type="text" placeholder="Наименование") 
-                            input.expenses_bottom_price(type="text" placeholder="Цена")
+                            input.expenses_item#expenses_3(type="text" placeholder="Наименование") 
+                            input.expenses_item#expenses_4(type="text" placeholder="Цена")
                         button.expenses_btn.btn Утвердить
                     .optexpenses 
                         .optexpenses_title.title Введите необязательные расходы
@@ -45,7 +45,8 @@ html(lang="ru")
                                 label(for="percent") Процент
                                 input.saving_item#percent(type="text")
                     .open 
-                        button.start.btn#start Начать расчет                 
+                        button.start.btn#start Начать расчет   
+                        a.google(href="google.com" target="_blank") Search Google              
 
                 .result
                     .result_table 
@@ -55,22 +56,22 @@ html(lang="ru")
                             .budget_value.value 
                         .daybudget
                             .daybudget_name.name Бюджет на 1 день:
-                            .daybudget_value.value 1
+                            .daybudget_value.value
                         .expenses
                             .expenses_name.name Обязательные расходы:
-                            .expenses_value.value 2
+                            .expenses_value.value
                         .optionalexpenses 
                             .optionalexpenses_name.name Возможные траты:
-                            .optionalexpenses_value.value 3
+                            .optionalexpenses_value.value
                         .income 
                             .income_name.name Дополнительный доход:
-                            .income_value.value 4
+                            .income_value.value
                         .monthsaving 
                             .monthsaving_name.name Накопления за 1 месяц:
-                            .monthsaving_value.value 5
+                            .monthsaving_value.value
                         .yearsaving 
                             .yearsaving_name.name Накопления за 1 год: 
-                            .yearsaving_value.value 6
+                            .yearsaving_value.value
                     .result_data 
                         .year Год:
                             input.year_value(type="text" readonly) 

@@ -9,17 +9,29 @@ let startCalc = document.getElementById('start'),
     optionalExpensesValue = document.getElementsByClassName('optionalexpenses_value'),
     incomeValue = document.getElementsByClassName('income_value'),
     monthSaving = document.getElementsByClassName('month_saving'),
-    yearSaving = document.getElementsByClassName('year_saving');
+    yearSaving = document.getElementsByClassName('year_saving'),
+    expensesItem = document.getElementsByClassName('expenses_item'),
+    button = document.getElementsByTagName('button'),
+    buttonExpensesApprove = button[0],
+    buttonOptexpensesApprove = button[1],
+    buttonCountbudgetCalc = button[2],
+    optExpensesItem = document.querySelectorAll('.optexpenses_item'),
+    income = document.querySelector('.income_label'),
+    savingCheck = document.querySelector('.saving_btn'),
+    savingSum = document.querySelector('.saving_sum > input'),
+    savingPercent = document.querySelector('.saving_percent > input'),
+    yearValue = document.querySelector('.year_value'),
+    monthValue = document.querySelector('.month_value'),
+    dayValue = document.querySelector('.day_value');
 
-budgetValue[0].value = 45;
 
-console.log(budgetValue[0]);
-console.log(dayBudgetValue[0]);
-console.log(expensesValue[0]);
-console.log(optionalExpensesValue[0]);
-console.log(incomeValue[0]);
-console.log(monthSaving[0]);
-console.log(yearSaving[0]);
+
+console.log(yearValue);
+console.log(monthValue);
+console.log(dayValue);
+
+
+
 
 
 // start();

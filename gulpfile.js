@@ -11,11 +11,11 @@ gulp.task('server', function () {
 
     browserSync({
         server: {
-            baseDir: "dist"
+            baseDir: "./dist"
         }
     });
 
-    gulp.watch("src/*.html").on('change', browserSync.reload);
+    gulp.watch("dist").on('change', browserSync.reload);
 });
 
 gulp.task('pug', function buildHTML() {
