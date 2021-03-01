@@ -2,6 +2,26 @@
 
 let money, time;
 
+let startCalc = document.getElementById('start'),
+    budgetValue = document.getElementsByClassName('budget_value'),
+    dayBudgetValue = document.getElementsByClassName('daybudget_value'),
+    expensesValue = document.getElementsByClassName('expenses_value'),
+    optionalExpensesValue = document.getElementsByClassName('optionalexpenses_value'),
+    incomeValue = document.getElementsByClassName('income_value'),
+    monthSaving = document.getElementsByClassName('month_saving'),
+    yearSaving = document.getElementsByClassName('year_saving');
+
+budgetValue[0].value = 45;
+
+console.log(budgetValue[0]);
+console.log(dayBudgetValue[0]);
+console.log(expensesValue[0]);
+console.log(optionalExpensesValue[0]);
+console.log(incomeValue[0]);
+console.log(monthSaving[0]);
+console.log(yearSaving[0]);
+
+
 // start();
 
 let appData = {

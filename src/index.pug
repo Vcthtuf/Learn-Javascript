@@ -3,6 +3,7 @@ html(lang="ru")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon" href="icon/favicon.ico" type="image/x-icon")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         title Learn Javascript
         link(rel="stylesheet", href="css/style.min.css")
@@ -33,46 +34,49 @@ html(lang="ru")
                     .income_title.title Введите статьи возможного дохода через запятую
                     input.income_label(type="text")
                     .saving
-                        .checksaving Есть ли накопления
-                            input.checksaving_btn.btn(type="checkbox")
-                        .saving_sum
-                            label(for="sum") Сумма
-                            input.saving_item#sum(type="text")
-                        .saving_percent
-                            label(for="percent") Процент
-                            input.saving_item#percent(type="text")
+                        .saving_check 
+                            p Есть ли накопления?
+                            input.saving_btn(type="checkbox")
+                        .saving_input
+                            .saving_sum
+                                label(for="sum") Сумма
+                                input.saving_item#sum(type="text")
+                            .saving_percent
+                                label(for="percent") Процент
+                                input.saving_item#percent(type="text")
                     .open 
                         button.start.btn#start Начать расчет                 
 
                 .result
                     .result_table 
-                        .budget Доход:
+                        .result_title Доход:
+                        .budget 
                             .budget_name.name Уровень дохода
-                            .budget_value 
+                            .budget_value.value 
                         .daybudget
                             .daybudget_name.name Бюджет на 1 день:
-                            .daybudget_value
+                            .daybudget_value.value 1
                         .expenses
                             .expenses_name.name Обязательные расходы:
-                            .expenses_value 
+                            .expenses_value.value 2
                         .optionalexpenses 
-                            .optionalexpenses_name Возможные траты:
-                            .optionalexpenses_value 
+                            .optionalexpenses_name.name Возможные траты:
+                            .optionalexpenses_value.value 3
                         .income 
                             .income_name.name Дополнительный доход:
-                            .income_value 
+                            .income_value.value 4
                         .monthsaving 
                             .monthsaving_name.name Накопления за 1 месяц:
-                            .monthsaving_value
+                            .monthsaving_value.value 5
                         .yearsaving 
                             .yearsaving_name.name Накопления за 1 год: 
-                            .yearsaving_value 
-                        .data 
-                            .year Год
-                                input.year_value(type="text" readonly) 
-                            .month Месяц
-                                input.month_value(type="text" readonly) 
-                            .day День
-                                input.day_value(type="text" readonly) 
+                            .yearsaving_value.value 6
+                    .result_data 
+                        .year Год:
+                            input.year_value(type="text" readonly) 
+                        .month Месяц:
+                            input.month_value(type="text" readonly) 
+                        .day День:
+                            input.day_value(type="text" readonly) 
 
         script(src="js/script.js")
