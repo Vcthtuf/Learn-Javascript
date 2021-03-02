@@ -2,20 +2,20 @@
 
 let money, time;
 
-let startCalc = document.getElementById('start'),
-    budgetValue = document.getElementsByClassName('budget_value'),
-    dayBudgetValue = document.getElementsByClassName('daybudget_value'),
-    expensesValue = document.getElementsByClassName('expenses_value'),
-    optionalExpensesValue = document.getElementsByClassName('optionalexpenses_value'),
-    incomeValue = document.getElementsByClassName('income_value'),
-    monthSaving = document.getElementsByClassName('month_saving'),
-    yearSaving = document.getElementsByClassName('year_saving'),
+let startBtn = document.getElementById('start'),
+    budgetValue = document.getElementsByClassName('budget_value')[0],
+    dayBudgetValue = document.getElementsByClassName('daybudget_value')[0],
+    expensesValue = document.getElementsByClassName('expenses_value')[0],
+    optionalExpensesValue = document.getElementsByClassName('optionalexpenses_value')[0],
+    incomeValue = document.getElementsByClassName('income_value')[0],
+    monthSaving = document.getElementsByClassName('month_saving')[0],
+    yearSaving = document.getElementsByClassName('year_saving')[0],
     expensesItem = document.getElementsByClassName('expenses_item'),
     button = document.getElementsByTagName('button'),
     buttonExpensesApprove = button[0],
     buttonOptexpensesApprove = button[1],
     buttonCountbudgetCalc = button[2],
-    optExpensesItem = document.querySelectorAll('.optexpenses_item'),
+    optExpensesItem = document.querySelectorAll('.optexpenses_item')[0],
     income = document.querySelector('.income_label'),
     savingCheck = document.querySelector('.saving_btn'),
     savingSum = document.querySelector('.saving_sum > input'),
@@ -24,17 +24,35 @@ let startCalc = document.getElementById('start'),
     monthValue = document.querySelector('.month_value'),
     dayValue = document.querySelector('.day_value');
 
+startBtn.addEventListener('click', function () {
+    time = prompt('Введите дату в формате YYYY-MM-DD', '');
+    while (isNaN(money) || money == '' || money == null) {
+        money = +prompt('Ваш бюджет на месяц?', '');
+    }
+    appData.budget = money;
+    appData.timeData = time;
+    budgetValue.textContent = appData.budget;
+    yearValue.value = new Date(Date.parse(time)).getFullYear();
+    monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
+    dayValue.value = new Date(Date.parse(time)).getDate();
+});
+
+buttonExpensesApprove.addEventListener('click', function () {
+    let sum = 0;
+    for (let i = 0; i < expensesItem.length / 2; i++) {
+        let a = prompt('Введите обязательную статью расходов', '');
+        let b = +prompt('Во сколько обойдется?', '');
 
 
-console.log(yearValue);
-console.log(monthValue);
-console.log(dayValue);
+        if ((typeof (a)) == 'string' && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
+            console.log('done');
+            appData.expenses[a] = b;
+        } else {
+            i--;
+        }
+    }
 
-
-
-
-
-// start();
+});
 
 let appData = {
     budget: money,
@@ -93,16 +111,8 @@ let appData = {
     }
 };
 
-console.log(appData);
 
-// functions 
 
-function start() {
-    while (isNaN(money) || money == '' || money == null) {
-        money = +prompt('Ваш бюджет на месяц?', '');
-    }
-    time = prompt('Введите дату в формате YYYY-MM-DD', '');
-}
 
 
 
