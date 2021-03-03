@@ -10,9 +10,10 @@ let startBtn = document.getElementById('start'),
     incomeValue = document.getElementsByClassName('income_value')[0],
     monthSaving = document.getElementsByClassName('month_saving')[0],
     yearSaving = document.getElementsByClassName('year_saving')[0],
+
     expensesItem = document.getElementsByClassName('expenses_item'),
     button = document.getElementsByTagName('button'),
-    buttonExpensesApprove = button[0],
+    buttonExpensesApprove = document.getElementsByClassName('expenses_btn')[0],
     buttonOptexpensesApprove = button[1],
     buttonCountbudgetCalc = button[2],
     optExpensesItem = document.querySelectorAll('.optexpenses_item')[0],
@@ -39,19 +40,19 @@ startBtn.addEventListener('click', function () {
 
 buttonExpensesApprove.addEventListener('click', function () {
     let sum = 0;
-    for (let i = 0; i < expensesItem.length / 2; i++) {
-        let a = prompt('Введите обязательную статью расходов', '');
-        let b = +prompt('Во сколько обойдется?', '');
+    for (let i = 0; i < expensesItem.length; i++) {
+        let a = expensesItem[i].value;
+        let b = expensesItem[++i].value;
 
 
         if ((typeof (a)) == 'string' && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
-            console.log('done');
             appData.expenses[a] = b;
+            sum += +b;
         } else {
             i--;
         }
     }
-
+    expensesValue.textContent = sum;
 });
 
 let appData = {
