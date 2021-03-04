@@ -14,23 +14,23 @@ html(lang="ru")
             .main 
                 .data
                     .expenses 
-                        .expenses_title.title Введите обязательные расходы
+                        .expenses_title.title Введите обязательные расходы на день
                         .expenses_top 
                             input.expenses_item#expenses_1(type="text" placeholder="Наименование") 
                             input.expenses_item#expenses_2(type="text" placeholder="Цена")
                         .expenses_bottom 
                             input.expenses_item#expenses_3(type="text" placeholder="Наименование") 
                             input.expenses_item#expenses_4(type="text" placeholder="Цена")
-                        button.expenses_btn.btn Утвердить
+                        button.expenses_btn.btn(disabled) Утвердить
                     .optexpenses 
                         .optexpenses_title.title Введите необязательные расходы
                         .optexpenses_table
                             input.optexpenses_item(type="text") 
                             input.optexpenses_item(type="text")
                             input.optexpenses_item(type="text")
-                        button.optexpenses_btn.btn Утвердить
+                        button.optexpenses_btn.btn(disabled) Утвердить
                     .countbudget_title.title Расчет дневного бюджета
-                    button.countbudget_btn.btn Рассчитать
+                    button.countbudget_btn.btn(disabled) Рассчитать
                     .income_title.title Введите статьи возможного дохода через запятую
                     input.income_label(type="text")
                     .saving
