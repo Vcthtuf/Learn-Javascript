@@ -8,8 +8,9 @@ let startBtn = document.getElementById('start'),
     expensesValue = document.getElementsByClassName('expenses_value')[0],
     optionalExpensesValue = document.getElementsByClassName('optionalexpenses_value')[0],
     incomeValue = document.getElementsByClassName('income_value')[0],
-    monthSaving = document.getElementsByClassName('month_saving')[0],
-    yearSaving = document.getElementsByClassName('year_saving')[0],
+    monthSaving = document.getElementsByClassName('monthsaving_value')[0],
+    yearSaving = document.getElementsByClassName('yearsaving_value')[0],
+    countButton = document.getElementsByClassName('countbudget_btn')[0],
 
     expensesItem = document.getElementsByClassName('expenses_item'),
     button = document.getElementsByTagName('button'),
@@ -59,7 +60,6 @@ buttonOptexpensesApprove.addEventListener('click', function () {
     console.log(optExpensesItem.length);
     for (let i = 0; i < optExpensesItem.length; i++) {
         let opt = optExpensesItem[i].value;
-        console.log('done');
         console.log(opt);
         if ((typeof (opt)) == 'string' && (typeof (opt)) != null && opt != '' && opt.length < 50) {
 
@@ -71,43 +71,64 @@ buttonOptexpensesApprove.addEventListener('click', function () {
     }
 });
 
+countButton.addEventListener('click', function () {
+    if (appData.budget != undefined) {
+        appData.moneyPerDay = (appData.budget / 30).toFixed(2);
+        dayBudgetValue.textContent = appData.moneyPerDay;
+    }
+    else {
+        dayBudgetValue.textContent = 'Произошла ошибка';
+    }
+});
+
+income.addEventListener('input', function () {
+    let items = income.value;
+    if (typeof (items) == 'string' && typeof (items) != null && items != '') {
+        appData.income = items.split(', ');
+        incomeValue.textContent = appData.income;
+    }
+});
+
+savingCheck.addEventListener('click', function () {
+    if (appData.savings) {
+        appData.savings = false;
+    } else { appData.savings = true; }
+});
+
+savingSum.addEventListener('input', function () {
+    if (appData.savings == true) {
+        let sum = +savingSum.value,
+            percent = +savingPercent.value;
+        appData.monthIncome = (sum * percent / 1200).toFixed(2);
+        appData.yearIncome = (sum * percent / 100).toFixed(2);
+        monthSaving.textContent = appData.monthIncome;
+        yearSaving.textContent = appData.yearIncome;
+
+
+    }
+
+});
+
+savingPercent.addEventListener('input', function () {
+    if (appData.savings == true) {
+        let sum = +savingSum.value,
+            percent = +savingPercent.value;
+        appData.monthIncome = (sum * percent / 1200).toFixed(2);
+        appData.yearIncome = (sum * percent / 100).toFixed(2);
+        monthSaving.textContent = appData.monthIncome;
+        yearSaving.textContent = appData.yearIncome;
+
+
+    }
+});
+
 let appData = {
     budget: money,
     timeData: time,
     expenses: {},
     optionalExpenses: {},
     income: [],
-    savings: false,
-    chooseExpenses: function () {
-
-    },
-    detectDayBudget: function () {
-        appData.moneyPerDay = (appData.budget / 30).toFixed(2);
-        alert('Ваш бюджет на день ' + appData.moneyPerDay);
-    },
-    checkSavings: function () {
-        appData.savings = confirm('Вы имеете накопления?');
-        if (appData.savings === true) {
-            let save = +prompt('Какова сумма Ваших накоплений?', ''),
-                persent = +prompt('Под какой процент?', '');
-            appData.monthIncome = (save * persent / 1200).toFixed(2);
-            alert('Ваша прибыль в месяц: ' + appData.monthIncome);
-        }
-    },
-    chooseOptExpenses: function () {
-
-    },
-    chooseIncome: function () {
-        let items = prompt('Что принесет дополнительный доход (Перечислите через запятую)', '');
-        if (typeof (items) == 'string' && typeof (items) != null && items != '') {
-            appData.income = items.split(', ');
-        }
-        appData.income.push(prompt('Может что-то еще?', ''));
-        appData.income.sort();
-        appData.income.forEach((item, index, income) => {
-            alert(`${index + 1}.  ${item}`);
-        });
-    }
+    savings: false
 };
 
 
