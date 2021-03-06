@@ -140,22 +140,33 @@ let appData = {
 window.addEventListener('DOMContentLoaded', function () {
 
 
-    let position = 0,
-        animateBtn = document.querySelector('.animate_btn'),
-        animateBox = document.querySelector('.animate');
+    // let position = 0,
+    //     animateBtn = document.querySelector('.animate_btn'),
+    //     animateBox = document.querySelector('.animate');
 
-    console.log(document.animateBox);
+    // console.log(document.animateBox);
 
-    animateBtn.addEventListener('click', function () {
-        if (position == 0) {
-            animate();
-        } else if (position == 80) {
-            animateReverse();
+    // animateBtn.addEventListener('click', function () {
+    //     if (position == 0) {
+    //         animate();
+    //     } else if (position == 80) {
+    //         animateReverse();
+    //     }
+
+    //     // animateBtn.classList.toggle('animate_btn_active');
+
+    // });
+
+    let btnBlock = document.querySelector('.expenses'),
+        buttons = document.getElementsByClassName('expenses_item');
+
+    btnBlock.addEventListener('click', function (event) {
+        let input = event.target;
+        if (event.target && event.target.matches('.expenses_item')) {
+            input.setAttribute('placeholder', '');
         }
-
-        // animateBtn.classList.toggle('animate_btn_active');
-
     });
+
 
     // animateBtn.addEventListener('mousedown', function () {
     //     animate();
