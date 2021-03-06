@@ -106,8 +106,6 @@ savingSum.addEventListener('input', function () {
         appData.yearIncome = (sum * percent / 100).toFixed(2);
         monthSaving.textContent = appData.monthIncome;
         yearSaving.textContent = appData.yearIncome;
-
-
     }
 
 });
@@ -120,8 +118,6 @@ savingPercent.addEventListener('input', function () {
         appData.yearIncome = (sum * percent / 100).toFixed(2);
         monthSaving.textContent = appData.monthIncome;
         yearSaving.textContent = appData.yearIncome;
-
-
     }
 });
 
@@ -133,6 +129,80 @@ let appData = {
     income: [],
     savings: false
 };
+
+
+
+
+// animateBtn.addEventListener('click', function () {
+//     animateBox.classList.toggle('animate_active');
+// });
+
+window.addEventListener('DOMContentLoaded', function () {
+
+
+    let position = 0,
+        animateBtn = document.querySelector('.animate_btn'),
+        animateBox = document.querySelector('.animate');
+
+    console.log(document.animateBox);
+
+    animateBtn.addEventListener('click', function () {
+        if (position == 0) {
+            animate();
+        } else if (position == 80) {
+            animateReverse();
+        }
+
+        // animateBtn.classList.toggle('animate_btn_active');
+
+    });
+
+    // animateBtn.addEventListener('mousedown', function () {
+    //     animate();
+    //     animateBtn.classList.toggle('animate_btn_active');
+    // });
+
+    function animate() {
+        let id = setInterval(frame, 10);
+        function frame() {
+            if (position == 80) {
+                clearInterval(id);
+            } else {
+                position++;
+                animateBox.style.left = position + '%';
+                // animateBox.style.top = position + '%';
+            }
+        }
+    }
+
+    function animateReverse() {
+        let id = setInterval(frame, 10);
+        function frame() {
+            if (position == 0) {
+                clearInterval(id);
+            } else {
+                position--;
+                animateBox.style.left = position + '%';
+                // animateBox.style.top = position + '%';
+            }
+        }
+    }
+
+});
+
+
+
+
+
+
+// let timerId = setTimeout(function sayHello() {
+//     console.log('Hello!!!');
+//     setTimeout(sayHello, 3000);
+
+
+// })
+
+// clearTimeout(timerId);
 
 
 

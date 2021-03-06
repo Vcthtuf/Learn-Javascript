@@ -42,11 +42,31 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // });
 
-    let str = 'My name is R2D2';
+    // let str = 'My name is R2D2';
 
-    console.log(str.match(/\W/gi));
+    // console.log(str.match(/\W/gi));
+
+    // setTimeout(timeId, 3000);
+
+
+
+
+    let timerId = setTimeout(function sayHello() {
+        console.log('Hello!!!');
+        setTimeout(sayHello, 3000);
+
+
+    })
+
+    clearTimeout(timerId);
+
+
+
 
 });
+
+
+
 
 
 

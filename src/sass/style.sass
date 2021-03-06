@@ -10,6 +10,7 @@ body
     margin: 0 auto
     padding: 0
     background-color: #faf8f5
+    position: relative
     // background-color: red
    
 .app 
@@ -207,7 +208,38 @@ input, button
     padding: 0 3%
     min-height: 1.5rem
 
+.animate 
+    width: 20%
+    height: 20%
+    position: absolute
+    top: 0
+    left: 0
+    background-color: #0f0
 
+.animate_active 
+    left: 80%
+    
+.animate_wrapper
 
+    position: absolute
+    width: 80%
+    height: 60%
+    top: 10%
+    left: 10%
+    outline: 2px solid #00f
+
+.animate_btn
+    position: absolute
+    top: 28%
+    left: 50%
+    transform: translate(-50%, 0)
+    padding: 1rem 5%
+    background-color: #00f
+    color: #fff
+    &:hover
+        cursor: pointer
+
+.animate_btn_active
+    transform: scale(1.2, 1.2) translate(-40%, 0)
 
 
